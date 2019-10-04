@@ -23,6 +23,8 @@ import java.util.Scanner;
 
 public class ProblemSet3 {
     double gpa;
+    String rank;
+    String suit;
     private static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -30,9 +32,9 @@ public class ProblemSet3 {
 
         // comment out or uncomment as needed
 
-        // ps.sign(); // executes Exercise 1
-        // ps.parity(); // executes Exercise 2
-        // ps.ordered(); // executes Exercise 3
+        ps.sign(); // executes Exercise 1
+        ps.parity(); // executes Exercise 2
+        ps.ordered(); // executes Exercise 3
         ps.gpa(); // executes Exercise 4
         ps.grade(); // executes Exercise 5
         ps.cards(); // executes Exercise 6
@@ -89,7 +91,7 @@ public class ProblemSet3 {
      */
 
     public void ordered() {
-        System.out.print("\nEnter an integer: ");
+        System.out.print("Enter an integer: ");
         int firstInteger = in .nextInt();
         System.out.print("Enter an integer: ");
         int secondInteger = in .nextInt();
@@ -118,17 +120,19 @@ public class ProblemSet3 {
     public void gpa() {
 
         System.out.print("\nEnter a letter grade: ");
+        in.nextLine();
         String grade = in .nextLine();
+        grade = grade.toUpperCase();
 
-        if (grade.charAt(0) == 'A' || grade.charAt(0) == 'a') {
+        if (grade.charAt(0) == 'A') {
             gpa = 4.00;
-        } else if (grade.charAt(0) == 'B' || grade.charAt(0) == 'b') {
+        } else if (grade.charAt(0) == 'B') {
             gpa = 3.00;
-        } else if (grade.charAt(0) == 'C' || grade.charAt(0) == 'c') {
+        } else if (grade.charAt(0) == 'C') {
             gpa = 2.00;
-        } else if (grade.charAt(0) == 'D' || grade.charAt(0) == 'd') {
+        } else if (grade.charAt(0) == 'D') {
             gpa = 1.00;
-        } else if (grade.charAt(0) == 'F' || grade.charAt(0) == 'f') {
+        } else if (grade.charAt(0) == 'F') {
             gpa = 0.00;
             System.out.printf("\nYour GPA is %.2f", gpa);
             System.out.print(".\n");
@@ -154,7 +158,24 @@ public class ProblemSet3 {
      */
 
     public void grade() {
+        System.out.print("\nEnter a grade: ");
+        double grade = in .nextDouble();
 
+        if (grade > 100) {
+            System.out.println("\nGrades above 100 are invalid.");
+        } else if (grade < 0) {
+            System.out.println("\nGrades below 0 are invalid.");
+        } else if (grade <= 100 && grade >= 90) {
+            System.out.println("\nYou recieved an A.");
+        } else if (grade < 90 && grade >= 80) {
+            System.out.println("\nYou recieved a B.");
+        } else if (grade < 80 && grade >= 70) {
+            System.out.println("\nYou recieved a C.");
+        } else if (grade < 70 && grade >= 60) {
+            System.out.println("\nYou recieved a D.");
+        } else {
+            System.out.println("\nYou recieved an F.");
+        }
     }
 
     /*
@@ -164,6 +185,53 @@ public class ProblemSet3 {
      */
 
     public void cards() {
+        in.nextLine();
+        System.out.print("\nEnter a card: ");
+        String card = in .nextLine();
+        card = card.toUpperCase();
+        char firstCharacter = card.charAt(0);
+        char secondCharacter = card.charAt(1);
+        char thirdCharacter = card.charAt(2);
+
+        if (firstCharacter == 'A') {
+            rank = "Ace";
+        } else if (firstCharacter == 'K') {
+            rank = "King";
+        } else if (firstCharacter == 'Q') {
+            rank = "Queen";
+        } else if (firstCharacter == 'J') {
+            rank = "Jack";
+        } else if (firstCharacter == '1') {
+            rank = "Ten";
+        } else if (firstCharacter == '9') {
+            rank = "Nine";
+        } else if (firstCharacter == '8') {
+            rank = "Eight";
+        } else if (firstCharacter == '7') {
+            rank = "Seven";
+        } else if (firstCharacter == '6') {
+            rank = "Six";
+        } else if (firstCharacter == '5') {
+            rank = "Five";
+        } else if (firstCharacter == '4') {
+            rank = "Four";
+        } else if (firstCharacter == '3') {
+            rank = "Three";
+        } else if (firstCharacter == '2') {
+            rank = "Two";
+        }
+
+        if (secondCharacter == 'C' || thirdCharacter == 'C') {
+            suit = "Clubs";
+        } else if (secondCharacter == 'D' || thirdCharacter == 'D') {
+            suit = "Diamonds";
+        } else if (secondCharacter == 'H' || thirdCharacter == 'H') {
+            suit = "Hearts";
+        } else if (secondCharacter == 'S' || thirdCharacter == 'S') {
+            suit = "Spades";
+        }
+
+        System.out.println("\n" + rank + " of " + suit + ".");
 
     }
 
