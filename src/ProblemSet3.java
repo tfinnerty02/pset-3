@@ -17,12 +17,12 @@
  * questions, and fix your mistakes. It's the only way to get good at programming.
  */
 
- // Copyright (c) 2019. UCVTS and its affiliated.
+// Copyright (c) 2019. UCVTS and its affiliated.
 
 import java.util.Scanner;
 
 public class ProblemSet3 {
-
+    double gpa;
     private static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -30,9 +30,9 @@ public class ProblemSet3 {
 
         // comment out or uncomment as needed
 
-        ps.sign(); // executes Exercise 1
-        ps.parity(); // executes Exercise 2
-        ps.ordered(); // executes Exercise 3
+        // ps.sign(); // executes Exercise 1
+        // ps.parity(); // executes Exercise 2
+        // ps.ordered(); // executes Exercise 3
         ps.gpa(); // executes Exercise 4
         ps.grade(); // executes Exercise 5
         ps.cards(); // executes Exercise 6
@@ -97,15 +97,15 @@ public class ProblemSet3 {
         int thirdInteger = in .nextInt();
 
         if (firstInteger < secondInteger && secondInteger < thirdInteger) {
-            System.out.println("\nStrictly increasing.\n");
+            System.out.println("\nStrictly increasing.");
         } else if (firstInteger <= secondInteger && secondInteger <= thirdInteger) {
-            System.out.println("\nIncreasing.\n");
+            System.out.println("\nIncreasing.");
         } else if (firstInteger > secondInteger && secondInteger > thirdInteger) {
-            System.out.println("\nStrictly decreasing.\n");
+            System.out.println("\nStrictly decreasing.");
         } else if (firstInteger >= secondInteger && secondInteger >= thirdInteger) {
-            System.out.println("\nDecreasing.\n");
+            System.out.println("\nDecreasing.");
         } else {
-            System.out.println("\nUnordered.\n");
+            System.out.println("\nUnordered.");
         }
     }
 
@@ -117,6 +117,34 @@ public class ProblemSet3 {
 
     public void gpa() {
 
+        System.out.print("\nEnter a letter grade: ");
+        String grade = in .nextLine();
+
+        if (grade.charAt(0) == 'A' || grade.charAt(0) == 'a') {
+            gpa = 4.00;
+        } else if (grade.charAt(0) == 'B' || grade.charAt(0) == 'b') {
+            gpa = 3.00;
+        } else if (grade.charAt(0) == 'C' || grade.charAt(0) == 'c') {
+            gpa = 2.00;
+        } else if (grade.charAt(0) == 'D' || grade.charAt(0) == 'd') {
+            gpa = 1.00;
+        } else if (grade.charAt(0) == 'F' || grade.charAt(0) == 'f') {
+            gpa = 0.00;
+            System.out.printf("\nYour GPA is %.2f", gpa);
+            System.out.print(".\n");
+            return;
+        }
+
+        if (grade.length() == 2) {
+            if (grade.charAt(1) == '+' && (grade.charAt(0) != 'F' || grade.charAt(0) != 'f')) {
+                gpa += 0.33;
+            } else if (grade.charAt(1) == '-' && (grade.charAt(0) != 'F' || grade.charAt(0) != 'f')) {
+                gpa -= 0.33;
+            }
+        }
+
+        System.out.printf("\nYour GPA is %.2f", gpa);
+        System.out.print(".\n");
     }
 
     /*
