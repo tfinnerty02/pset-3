@@ -17,6 +17,8 @@
  * questions, and fix your mistakes. It's the only way to get good at programming.
  */
 
+ // Copyright (c) 2019. UCVTS and its affiliated.
+
 import java.util.Scanner;
 
 public class ProblemSet3 {
@@ -28,18 +30,18 @@ public class ProblemSet3 {
 
         // comment out or uncomment as needed
 
-        ps.sign();          // executes Exercise 1
-        ps.parity();        // executes Exercise 2
-        ps.ordered();       // executes Exercise 3
-        ps.gpa();           // executes Exercise 4
-        ps.grade();         // executes Exercise 5
-        ps.cards();         // executes Exercise 6
-        ps.leapYear();      // executes Exercise 7
-        ps.state();         // executes Exercise 8
-        ps.months();        // executes Exercise 9
-        ps.salary();        // executes Exercise 10
+        ps.sign(); // executes Exercise 1
+        ps.parity(); // executes Exercise 2
+        ps.ordered(); // executes Exercise 3
+        ps.gpa(); // executes Exercise 4
+        ps.grade(); // executes Exercise 5
+        ps.cards(); // executes Exercise 6
+        ps.leapYear(); // executes Exercise 7
+        ps.state(); // executes Exercise 8
+        ps.months(); // executes Exercise 9
+        ps.salary(); // executes Exercise 10
 
-        in.close();
+        in .close();
     }
 
     /*
@@ -50,17 +52,16 @@ public class ProblemSet3 {
 
     public void sign() {
 
-      System.out.print("\nEnter an integer: ");
-      int integerToTest = in.nextInt();
+        System.out.print("\nEnter an integer: ");
+        int integerToTest = in .nextInt();
 
-      if (integerToTest < 0) {
-        System.out.println("\nNegative.\n");
-      } else if (integerToTest == 0) {
-        System.out.println("\nZero. Neither negative nor positive.\n");
-      } else {
-        System.out.println("\nPositive.\n");
-      }
-
+        if (integerToTest < 0) {
+            System.out.println("\nNegative.\n");
+        } else if (integerToTest == 0) {
+            System.out.println("\nZero. Neither negative nor positive.\n");
+        } else {
+            System.out.println("\nPositive.\n");
+        }
     }
 
     /*
@@ -71,6 +72,14 @@ public class ProblemSet3 {
 
     public void parity() {
 
+        System.out.print("Enter an integer: ");
+        int integerToTest = in .nextInt();
+
+        if (integerToTest % 2 == 0) {
+            System.out.println("\nEven.\n");
+        } else {
+            System.out.println("\nOdd.\n");
+        }
     }
 
     /*
@@ -80,7 +89,24 @@ public class ProblemSet3 {
      */
 
     public void ordered() {
+        System.out.print("\nEnter an integer: ");
+        int firstInteger = in .nextInt();
+        System.out.print("Enter an integer: ");
+        int secondInteger = in .nextInt();
+        System.out.print("Enter an integer: ");
+        int thirdInteger = in .nextInt();
 
+        if (firstInteger < secondInteger && secondInteger < thirdInteger) {
+            System.out.println("\nStrictly increasing.\n");
+        } else if (firstInteger <= secondInteger && secondInteger <= thirdInteger) {
+            System.out.println("\nIncreasing.\n");
+        } else if (firstInteger > secondInteger && secondInteger > thirdInteger) {
+            System.out.println("\nStrictly decreasing.\n");
+        } else if (firstInteger >= secondInteger && secondInteger >= thirdInteger) {
+            System.out.println("\nDecreasing.\n");
+        } else {
+            System.out.println("\nUnordered.\n");
+        }
     }
 
     /*
